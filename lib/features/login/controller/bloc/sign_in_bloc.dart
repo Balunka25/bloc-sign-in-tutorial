@@ -7,19 +7,16 @@ part 'sign_in_event.dart';
 part 'sign_in_state.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
-  final SignInUseCase _signInUseCase;
+  final SignInUseCase _signInUseCase = AppGetIt().getIt<SignInUseCase>();
 
-  SignInBloc()
-      : _signInUseCase = AppGetIt().getIt<SignInUseCase>(),
-        super(const SignInState.initial()) {
+  SignInBloc() : super(const SignInState.initial()) {
     on<SignIn>(signIn);
     on<OnPassChanged>(onPassChanged);
     on<OnEmailChanged>(onEmailChanged);
   }
 
   onPassChanged(OnPassChanged event, emit) =>
-    emit(state.copyWith(password: event.password));
-  
+      emit(state.copyWith(password: event.password));
 
   onEmailChanged(OnEmailChanged event, emit) =>
       emit(state.copyWith(email: event.email));

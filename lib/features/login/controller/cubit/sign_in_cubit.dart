@@ -6,10 +6,8 @@ import 'package:equatable/equatable.dart';
 part 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
-  final SignInUseCase _signInUseCase;
-  SignInCubit()
-      : _signInUseCase = AppGetIt().getIt<SignInUseCase>(),
-        super(const SignInState.initial());
+  final SignInUseCase _signInUseCase = AppGetIt().getIt<SignInUseCase>();
+  SignInCubit() : super(const SignInState.initial());
 
   onPassChanged(String value) => emit(state.copyWith(password: value));
 

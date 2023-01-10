@@ -4,10 +4,7 @@ import 'package:bloc_tutorial/core/domain/repositories/authentication_repository
 import 'package:bloc_tutorial/core/generics/resource/resource.dart';
 
 class AuthenticationRepositoryImpl extends AuthenticationRepository {
-  final AuthenticationDataSource _ds;
-
-  AuthenticationRepositoryImpl()
-      : _ds = AppGetIt().getIt<AuthenticationDataSource>();
+  final AuthenticationDataSource _ds = AppGetIt().getIt<AuthenticationDataSource>();
 
   @override
   Future<Resource<String, void>> signInWithEmailAndPassword(
