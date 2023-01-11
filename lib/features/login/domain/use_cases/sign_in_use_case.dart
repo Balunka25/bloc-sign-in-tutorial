@@ -8,7 +8,10 @@ abstract class SignInUseCase {
 }
 
 class SignInUseCaseImpl implements SignInUseCase {
-  final AuthenticationRepository _repo = AppGetIt().getIt<AuthenticationRepository>();
+  final AuthenticationRepository _repo;
+
+  SignInUseCaseImpl({AuthenticationRepository? repo})
+      : _repo = repo ?? AppGetIt().getIt<AuthenticationRepository>();
 
   @override
   Future<Resource<String, UserEntity>> call(

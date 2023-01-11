@@ -4,8 +4,8 @@ abstract class SignInEvent extends Equatable {
   const SignInEvent();
 }
 
-class SignIn extends SignInEvent {
-  const SignIn();
+class OnSignIn extends SignInEvent {
+  const OnSignIn();
 
   @override
   List<Object?> get props => [];

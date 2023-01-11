@@ -67,7 +67,7 @@ class LoginPage extends StatelessWidget {
                       children: [
                         ElevatedButton(
                             onPressed: () {
-                              BlocProvider.of<SignInCubit>(context).signIn();
+                              BlocProvider.of<SignInCubit>(context).onSignIn();
                             },
                             child: Text(
                                 state.isLoading ? "Carregando..." : "Sign in"))

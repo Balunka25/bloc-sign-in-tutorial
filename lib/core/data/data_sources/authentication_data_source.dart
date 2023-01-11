@@ -8,7 +8,10 @@ abstract class AuthenticationDataSource {
 }
 
 class AuthenticationDataSourceImpl extends AuthenticationDataSource {
-  final RemoteClient _remoteClient = AppGetIt().getIt<RemoteClient>();
+  final RemoteClient _remoteClient;
+
+  AuthenticationDataSourceImpl({RemoteClient? remoteClient})
+      : _remoteClient = remoteClient ?? AppGetIt().getIt<RemoteClient>();
 
   @override
   Future<Resource<String, void>> signInWithEmailAndPassword(
